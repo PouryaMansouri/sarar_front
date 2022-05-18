@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <>
-      <footer className="footer appear-animate">
+      <footer className="footer ">
         <div className="container">
           <div className="footer-middle">
             <div className="row">

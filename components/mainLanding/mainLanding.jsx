@@ -1,4 +1,5 @@
 import React from "react";
+import InstagramPart from "../landing/instagramPart";
 import ProductCard from "../ui/productCard";
 
 function MainLanding() {
@@ -108,7 +109,7 @@ function MainLanding() {
                 </div>
                 <div className="mb-4 col-md-6">
                   <div
-                    className="banner banner-fixed overlay-zoom intro-banner intro-banner1 content-middle appear-animate"
+                    className="banner banner-fixed overlay-zoom intro-banner intro-banner1 content-middle "
                     data-animation-options="{
                                     'name': 'fadeInUpShorter',
                                     'delay': '.3s'
@@ -142,7 +143,7 @@ function MainLanding() {
                 </div>
                 <div className="mb-4 col-md-6">
                   <div
-                    className="banner banner-fixed overlay-zoom intro-banner intro-banner2 content-middle appear-animate"
+                    className="banner banner-fixed overlay-zoom intro-banner intro-banner2 content-middle "
                     data-animation-options="{
                                     'name': 'fadeInUpShorter',
                                     'delay': '.5s'
@@ -192,7 +193,7 @@ function MainLanding() {
               </div>
             </section>
             <section
-              className="pt-md-2 pb-md-6 category-section appear-animate"
+              className="pt-md-2 pb-md-6 category-section "
               data-animation-options="{'name': 'fadeIn'}"
             >
               <h2 className="title title-simple ls-m">Top Categories</h2>
@@ -278,7 +279,7 @@ function MainLanding() {
               </div>
             </section>
             <section
-              className="mt-10 mb-10 banner banner-sale appear-animate"
+              className="mt-10 mb-10 banner banner-sale "
               data-animation-options="{'name': 'fadeIn'}"
               style={{
                 backgroundImage: "url(images/demos/demo2/banners/3.jpg)",
@@ -286,7 +287,7 @@ function MainLanding() {
               }}
             >
               <div
-                className="banner-content appear-animate"
+                className="banner-content "
                 data-animation-options="{'name': 'fadeInUpShorter','duration': '1s'}"
               >
                 <h4 className="mb-0 text-white banner-subtitle text-uppercase font-weight-normal lh-1 ls-m">
@@ -337,284 +338,10 @@ function MainLanding() {
                             }
                         }"
               >
-                <div
-                  className="product appear-animate"
-                  data-animation-options="{
-                                'name': 'fadeInRightShorter',
-                                'delay': '.2s'
-                            }"
-                >
-                  <figure className="product-media">
-                    <a href="demo2-product.html">
-                      <img
-                        src="images/demos/demo2/products/9.jpg"
-                        alt="Blue Pinafore Denim Dress"
-                        width={280}
-                        height={315}
-                        style={{ backgroundColor: "#f2f3f5" }}
-                      />
-                    </a>
-                    <div className="product-label-group">
-                      <label className="product-label label-sale">
-                        35% Off
-                      </label>
-                    </div>
-                    <div className="product-action-vertical">
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-cart"
-                        data-toggle="modal"
-                        data-target="#addCartModal"
-                        title="Add to cart"
-                      >
-                        <i className="d-icon-bag" />
-                      </a>
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      >
-                        <i className="d-icon-heart" />
-                      </a>
-                    </div>
-                    <div className="product-action">
-                      <a
-                        href="#"
-                        className="btn-product btn-quickview"
-                        title="Quick View"
-                      >
-                        Quick View
-                      </a>
-                    </div>
-                  </figure>
-                  <div className="product-details">
-                    <div className="product-cat">
-                      <a href="demo2-shop.html">Accessories</a>
-                    </div>
-                    <h3 className="product-name">
-                      <a href="demo2-product.html">Hand Electric Cell</a>
-                    </h3>
-                    <div className="product-price">
-                      <ins className="new-price">$26.00</ins>
-                      <del className="old-price">$38.00</del>
-                    </div>
-                    <div className="ratings-container">
-                      <div className="ratings-full">
-                        <span className="ratings" style={{ width: "100%" }} />
-                        <span className="tooltiptext tooltip-top" />
-                      </div>
-                      <a href="demo2-product.html" className="rating-reviews">
-                        ( 6 reviews )
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="product appear-animate"
-                  data-animation-options="{
-                                'name': 'fadeInRightShorter',
-                                'delay': '.3s'
-                            }"
-                >
-                  <figure className="product-media">
-                    <a href="demo2-product.html">
-                      <img
-                        src="images/demos/demo2/products/10.jpg"
-                        alt="Blue Pinafore Denim Dress"
-                        width={280}
-                        height={315}
-                        style={{ backgroundColor: "#f2f3f5" }}
-                      />
-                    </a>
-                    <div className="product-label-group">
-                      <label className="product-label label-new">new</label>
-                    </div>
-                    <div className="product-action-vertical">
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-cart"
-                        data-toggle="modal"
-                        data-target="#addCartModal"
-                        title="Add to cart"
-                      >
-                        <i className="d-icon-bag" />
-                      </a>
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      >
-                        <i className="d-icon-heart" />
-                      </a>
-                    </div>
-                    <div className="product-action">
-                      <a
-                        href="#"
-                        className="btn-product btn-quickview"
-                        title="Quick View"
-                      >
-                        Quick View
-                      </a>
-                    </div>
-                  </figure>
-                  <div className="product-details">
-                    <div className="product-cat">
-                      <a href="demo2-shop.html">Shoes</a>
-                    </div>
-                    <h3 className="product-name">
-                      <a href="demo2-product.html">
-                        Season Sports Blue Sneaker
-                      </a>
-                    </h3>
-                    <div className="product-price">
-                      <span className="price">$119.58</span>
-                    </div>
-                    <div className="ratings-container">
-                      <div className="ratings-full">
-                        <span className="ratings" style={{ width: "80%" }} />
-                        <span className="tooltiptext tooltip-top" />
-                      </div>
-                      <a href="demo2-product.html" className="rating-reviews">
-                        ( 52 reviews )
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="product appear-animate"
-                  data-animation-options="{
-                                'name': 'fadeInRightShorter',
-                                'delay': '.4s'
-                            }"
-                >
-                  <figure className="product-media">
-                    <a href="demo2-product.html">
-                      <img
-                        src="images/demos/demo2/products/11.jpg"
-                        alt="Blue Pinafore Denim Dress"
-                        width={280}
-                        height={315}
-                        style={{ backgroundColor: "#f2f3f5" }}
-                      />
-                    </a>
-                    <div className="product-action-vertical">
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-cart"
-                        data-toggle="modal"
-                        data-target="#addCartModal"
-                        title="Add to cart"
-                      >
-                        <i className="d-icon-bag" />
-                      </a>
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      >
-                        <i className="d-icon-heart" />
-                      </a>
-                    </div>
-                    <div className="product-action">
-                      <a
-                        href="#"
-                        className="btn-product btn-quickview"
-                        title="Quick View"
-                      >
-                        Quick View
-                      </a>
-                    </div>
-                  </figure>
-                  <div className="product-details">
-                    <div className="product-cat">
-                      <a href="demo2-shop.html">Women</a>
-                    </div>
-                    <h3 className="product-name">
-                      <a href="demo2-product.html">Hempen Hood a Mourner</a>
-                    </h3>
-                    <div className="product-price">
-                      <span className="price">$43.26</span>
-                    </div>
-                    <div className="ratings-container">
-                      <div className="ratings-full">
-                        <span className="ratings" style={{ width: "40%" }} />
-                        <span className="tooltiptext tooltip-top" />
-                      </div>
-                      <a href="demo2-product.html" className="rating-reviews">
-                        ( 62 reviews )
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="product appear-animate"
-                  data-animation-options="{
-                                'name': 'fadeInRightShorter',
-                                'delay': '.5s'
-                            }"
-                >
-                  <figure className="product-media">
-                    <a href="demo2-product.html">
-                      <img
-                        src="images/demos/demo2/products/12.jpg"
-                        alt="Blue Pinafore Denim Dress"
-                        width={280}
-                        height={315}
-                        style={{ backgroundColor: "#f2f3f5" }}
-                      />
-                    </a>
-                    <div className="product-label-group">
-                      <label className="product-label label-new">new</label>
-                    </div>
-                    <div className="product-action-vertical">
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-cart"
-                        data-toggle="modal"
-                        data-target="#addCartModal"
-                        title="Add to cart"
-                      >
-                        <i className="d-icon-bag" />
-                      </a>
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      >
-                        <i className="d-icon-heart" />
-                      </a>
-                    </div>
-                    <div className="product-action">
-                      <a
-                        href="#"
-                        className="btn-product btn-quickview"
-                        title="Quick View"
-                      >
-                        Quick View
-                      </a>
-                    </div>
-                  </figure>
-                  <div className="product-details">
-                    <div className="product-cat">
-                      <a href="demo2-shop.html">Bags &amp; Backpacks</a>
-                    </div>
-                    <h3 className="product-name">
-                      <a href="demo2-product.html">Women’s Fashion Handbag</a>
-                    </h3>
-                    <div className="product-price">
-                      <span className="price">$184.00</span>
-                    </div>
-                    <div className="ratings-container">
-                      <div className="ratings-full">
-                        <span className="ratings" style={{ width: "80%" }} />
-                        <span className="tooltiptext tooltip-top" />
-                      </div>
-                      <a href="demo2-product.html" className="rating-reviews">
-                        ( 23 reviews )
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
               </div>
             </section>
             <section className="mt-10 service-list">
@@ -645,7 +372,7 @@ function MainLanding() {
                         }"
               >
                 <div
-                  className="icon-box appear-animate"
+                  className="icon-box "
                   data-animation-options="{
                                 'name': 'fadeInRightShorter',
                                 'delay': '.2s'
@@ -659,7 +386,7 @@ function MainLanding() {
                   </div>
                 </div>
                 <div
-                  className="icon-box appear-animate"
+                  className="icon-box "
                   data-animation-options="{
                                 'name': 'fadeInRightShorter',
                                 'delay': '.3s'
@@ -673,7 +400,7 @@ function MainLanding() {
                   </div>
                 </div>
                 <div
-                  className="icon-box appear-animate"
+                  className="icon-box "
                   data-animation-options="{
                                 'name': 'fadeInRightShorter',
                                 'delay': '.4s'
@@ -689,7 +416,7 @@ function MainLanding() {
                   </div>
                 </div>
                 <div
-                  className="icon-box appear-animate"
+                  className="icon-box "
                   data-animation-options="{
                                 'name': 'fadeInRightShorter',
                                 'delay': '.5s'
@@ -706,90 +433,7 @@ function MainLanding() {
                 </div>
               </div>
             </section>
-            <section
-              className="pb-8 mt-10 mb-10 instagram-section pt-7 appear-animate"
-              data-animation-options="{
-                        'delay': '.2s',
-                        'duration': '.5s'
-                    }"
-            >
-              <h2 className="title title-simple">Our Instagram</h2>
-              <div
-                className="owl-carousel owl-theme row cols-xl-5 cols-lg-4 cols-sm-3 cols-2"
-                data-owl-options="{
-                            'items': 5,
-                            'nav': false,
-                            'dots': false,
-                            'margin': 20,
-                            'autoplay': true,
-                            'responsive': {
-                                '0': {
-                                    'items': 2
-                                },
-                                '576': {
-                                    'items': 3
-                                },
-                                '992': {
-                                    'items': 4
-                                },
-                                '1200': {
-                                    'items': 5
-                                }
-                            }
-                        }"
-              >
-                <figure className="instagram">
-                  <a href="#">
-                    <img
-                      src="images/demos/demo2/instagram/1.jpg"
-                      alt="Instagram"
-                      width={220}
-                      height={220}
-                    />
-                  </a>
-                </figure>
-                <figure className="instagram">
-                  <a href="#">
-                    <img
-                      src="images/demos/demo2/instagram/2.jpg"
-                      alt="Instagram"
-                      width={220}
-                      height={220}
-                    />
-                  </a>
-                </figure>
-                <figure className="instagram">
-                  <a href="#">
-                    <img
-                      src="images/demos/demo2/instagram/3.jpg"
-                      alt="Instagram"
-                      width={220}
-                      height={220}
-                    />
-                  </a>
-                </figure>
-                <figure className="instagram">
-                  <a href="#">
-                    <img
-                      src="images/demos/demo2/instagram/4.jpg"
-                      alt="Instagram"
-                      width={220}
-                      height={220}
-                    />
-                  </a>
-                </figure>
-                <figure className="instagram">
-                  <a href="#">
-                    <img
-                      src="images/demos/demo2/instagram/5.jpg"
-                      alt="Instagram"
-                      width={220}
-                      height={220}
-                    />
-                  </a>
-                </figure>
-              </div>
-            </section>
+            <InstagramPart />
           </div>
         </div>
       </main>
