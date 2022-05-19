@@ -8,7 +8,7 @@ function TopCategories() {
         data-animation-options="{'name': 'fadeIn'}"
       >
         <h2 className="title title-simple ls-m">Top Categories</h2>
-        <div className="grid row">
+        <div className="grid row" style={{ position: "relative" }}>
           <div className="grid-item col-md-6 height-x2">
             <div className="content-center banner banner-fixed content-middle overlay-dark">
               <a href="demo2-shop.html">
@@ -46,7 +46,10 @@ function TopCategories() {
               </div>
             </div>
           </div>
-          <div className="grid-item col-sm-6 height-x1">
+          <div
+            className="grid-item col-sm-6 height-x1"
+            style={{ position: "absolute", left: "49.9922%", top: "0" }}
+          >
             <div className="category category-light category-absolute overlay-dark">
               <a href="demo2-shop.html">
                 <figure className="category-media">
@@ -66,7 +69,11 @@ function TopCategories() {
               </div>
             </div>
           </div>
-          <div className="grid-item col-sm-6 height-x1">
+
+          <div
+            className="grid-item col-sm-6 height-x1"
+            style={{ position: "absolute", left: "49.9922%", top: "300px" }}
+          >
             <div className="category category-light category-absolute overlay-dark">
               <a href="demo2-shop.html">
                 <figure className="category-media">
