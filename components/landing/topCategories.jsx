@@ -22,6 +22,17 @@ function TopCategories() {
                   />
                 </figure>
               </a>
+              <a href="demo2-shop.html">
+                <figure>
+                  <img
+                    src="images/demos/demo2/category/1.jpg"
+                    alt="category"
+                    width={585}
+                    height={397}
+                    style={{ backgroundColor: "#eef0f1" }}
+                  />
+                </figure>
+              </a>
               <div className="text-center banner-content w-100 h-100 d-flex flex-column">
                 <h3 className="mb-0 banner-title text-uppercase ls-s">
                   Padded Clothes

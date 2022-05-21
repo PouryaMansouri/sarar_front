@@ -4,6 +4,8 @@ import InstagramPart from "../landing/instagramPart";
 import TopCategories from "../landing/topCategories";
 import ValuesPart from "../landing/valuesPart";
 import ProductCard from "../ui/productCard";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 function MainLanding() {
   return (
@@ -14,70 +16,36 @@ function MainLanding() {
             <section className="intro-section">
               <div className="row">
                 <div className="mb-4 col-12">
-                  <div className="owl-carousel owl-theme row owl-dot-inner owl-dot-white intro-slider animation-slider cols-1 gutter-no">
-                    <div
-                      className="content-center banner banner-fixed intro-slide1 content-middle"
-                      style={{ backgroundColor: "#444342" }}
-                    >
-                      <figure>
-                        <img
-                          src="images/demos/demo2/slides/1.jpg"
-                          alt="intro-banner"
-                          width={1180}
-                          height={600}
-                          style={{ backgroundColor: "#444342" }}
-                        />
-                      </figure>
-                      <div className="banner-content">
-                        <h4 className="mb-0 text-left text-white banner-subtitle font-weight-semi-bold ls-normal lh-1 text-uppercase slide-animate">
-                          Men’s wear
-                        </h4>
-                        <h2 className="text-white banner-title text-uppercase slide-animate">
-                          Collection
-                        </h2>
-                        <h5 className="mb-1 text-right text-white font-weight-normal lh-1 ls-normal slide-animate">
-                          Start at
-                          <span className="text-secondary font-weight-bold">
-                            $19.99
-                          </span>
-                        </h5>
-                      </div>
+                  <Carousel
+                    autoPlay
+                    infiniteLoop
+                    showStatus={false}
+                    showIndicators={false}
+                    showThumbs={false}
+                    interval={5000}
+                  >
+                    <div className="">
+                      <img
+                        loading="lazy"
+                        src="https://links.papareact.com/gi1"
+                        alt=""
+                      />
                     </div>
-                    <div className="intro-slide2 banner banner-fixed">
-                      <figure>
-                        <img
-                          src="images/demos/demo2/slides/2.jpg"
-                          alt="banner"
-                          width={1180}
-                          height={600}
-                          style={{ backgroundColor: "#686868" }}
-                        />
-                      </figure>
-                      <div className="banner-content y-50">
-                        <h4 className="banner-subtitle font-weight-normal lh-1 ls-m slide-animate">
-                          Lifestyle collection
-                        </h4>
-                        <h3 className="text-white banner-title ls-l text-uppercase font-weight-bold lh-1 slide-animate">
-                          For Women’s
-                        </h3>
-                        <h5 className="mb-1 text-white font-weight-normal text-uppercase lh-1 ls-m slide-animate">
-                          sale Up to
-                          <span className="text-secondary font-weight-bold">
-                            30% Off
-                          </span>
-                        </h5>
-                        <p className="font-weight-normal ls-s mb-7 slide-animate">
-                          Get Free Shipping on all orders over $99.00
-                        </p>
-                        <a
-                          href="demo2-shop.html"
-                          className="btn btn-white btn-rounded slide-animate"
-                        >
-                          Shop now
-                        </a>
-                      </div>
+                    <div className="">
+                      <img
+                        loading="lazy"
+                        src="https://links.papareact.com/6ff"
+                        alt=""
+                      />
                     </div>
-                  </div>
+                    <div className="">
+                      <img
+                        loading="lazy"
+                        src="https://links.papareact.com/7ma"
+                        alt=""
+                      />
+                    </div>
+                  </Carousel>
                 </div>
                 <div className="mb-4 col-md-6">
                   <div className="banner banner-fixed overlay-zoom intro-banner intro-banner1 content-middle ">
