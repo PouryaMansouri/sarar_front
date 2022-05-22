@@ -1,8 +1,9 @@
 import React from "react";
 
-function ProductCard() {
+function ProductCard({data,...props}) {
   return (
     <div className="mb-4 col-lg-3 col-md-4 col-6">
+      
       <div
         className="product "
         data-animation-options="{

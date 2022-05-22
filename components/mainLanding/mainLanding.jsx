@@ -120,16 +120,15 @@ function MainLanding() {
                 <ProductCard />
               </div>
             </section>
-            <TopCategories />
+            {/* <TopCategories /> */}
             <BannerPart />
 
             <section className="pb-1 pt-7">
               <h2 className="title title-simple ls-m">Our Featured</h2>
               <div className="owl-carousel owl-theme row owl-nav-full cols-lg-4 cols-md-3 cols-2">
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
+                {[1, 1, 1,1].map((item, index) => (
+                  <ProductCard />
+                ))}
               </div>
             </section>
             <ValuesPart />

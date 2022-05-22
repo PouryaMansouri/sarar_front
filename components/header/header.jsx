@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import MainMenu from "../mainMenu/mainMenu";
 
@@ -71,12 +72,19 @@ function Header() {
                 <i className="d-icon-bars2" />
               </a>
               <a href="demo2.html" className="logo">
-                <img
+                <Image
+                  layout="fixed"
+                  height={44}
+                  width={153}
+                  src="/static/images/logo.svg"
+                  alt="logo"
+                />
+                {/* <img
                   src="images/demos/demo2/logo.png"
                   alt="logo"
                   width={153}
                   height={44}
-                />
+                /> */}
               </a>
               {/* End Logo */}
               <div className="header-search hs-simple">
