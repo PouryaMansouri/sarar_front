@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import MainMenu from "../mainMenu/mainMenu";
 
@@ -44,14 +45,12 @@ function Header() {
               <a href="#" className="help d-lg-show">
                 <i className="d-icon-info" /> Need Help
               </a>
-              <a
-                className="login-link"
-                href="ajax/login.html"
-                data-toggle="login-modal"
-              >
-                <i className="d-icon-user" />
-                Sign in
-              </a>
+              <Link href="/login">
+                <a className="login-link" data-toggle="login-modal">
+                  <i className="d-icon-user" />
+                  Sign in
+                </a>
+              </Link>
               <span className="delimiter">/</span>
               <a
                 className="ml-0 register-link"

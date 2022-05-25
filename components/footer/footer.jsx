@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function Footer() {
@@ -81,7 +82,9 @@ function Footer() {
                       <h4 className="widget-title">My Account</h4>
                       <ul className="widget-body">
                         <li>
-                          <a href="#">Sign In</a>
+                          <Link href="/login">
+                            <a>Sign In</a>
+                          </Link>
                         </li>
                         <li>
                           <a href="cart.html">View Cart</a>
