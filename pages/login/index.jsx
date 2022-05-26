@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { http } from "../../service/callApi/api";
 import Router, { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
+import { setToken } from "../../utils/setToken";
 
 const InputLogin = ({ type, id, placeholder }) => {
   return (
@@ -28,15 +29,23 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let milad = await http.post(
-      "https://nakhll.com/api/v1/auth/begin/login_register/",
+    let login = await http.post(
+      "https://sarar-mansouri.fandogh.cloud/api/token/",
       {
-        mobile: Email,
+        email: Email,
+        password: Password,
       }
     );
 
-    if (milad.status === 201) {
-      router.push("/");
+    if (login.status === 200) {
+      setToken({
+        access: login.data.access,
+        refresh: login.data.refresh,
+      });
+      toast.success("Welcome", { theme: "colored" });
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
     } else {
       toast.error("Login UnSuccessfully", { theme: "colored" });
     }
@@ -45,7 +54,7 @@ function Login() {
   return (
     <>
       {" "}
-      <ToastContainer />
+      <ToastContainer position="top-center" />
       <div className="page-content mt-6 pb-2 mb-10">
         <div className="container">
           <div className="login-popup">
@@ -103,18 +112,17 @@ function Login() {
                         </div>
                         <div className="form-footer">
                           <div className="form-checkbox">
-                            <input
-                              type="checkbox"
-                              className="custom-checkbox"
-                              id="signin-remember"
-                              name="signin-remember"
-                            />
-                            <label
+                            <div
                               className="form-control-label"
-                              htmlFor="signin-remember"
+                              style={{
+                                fontWeight: "bold",
+                                color: "#000",
+                                cursor: "pointer",
+                              }}
+                              onClick={() => router.push("/register")}
                             >
-                              Remember me
-                            </label>
+                              Register
+                            </div>
                           </div>
                           <a href="#" className="lost-link">
                             Lost your password?

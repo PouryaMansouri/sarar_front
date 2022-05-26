@@ -1,4 +1,7 @@
 import axios from "axios";
+import {
+    checkToken
+} from "../../utils/checkToken";
 
 // function handelShowMessage(error) {
 //     const expectedError =
@@ -49,28 +52,28 @@ http.interceptors.response.use(
     }
 );
 
-// export const authhttp = axios.create({});
+export const authhttp = axios.create({});
 
-// authhttp.interceptors.request.use(
-//     async(config) => {
-//         let token = await checkToken();
+authhttp.interceptors.request.use(
+    async(config) => {
+        let token = await checkToken();
 
-//         if (token) {
-//             config.headers.authorization = `Bearer ${token}`;
-//         }
-//         return config;
-//     },
-//     (error) => {
-//         return Promis.reject(error);
-//     }
-// );
+        if (token) {
+            config.headers.authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promis.reject(error);
+    }
+);
 
-// authhttp.interceptors.response.use(
-//     (response) => {
-//         return response;
-//     },
-//     (error) => {
-//         handelShowMessage(error);
-//         return error;
-//     }
-// );
+authhttp.interceptors.response.use(
+    (response) => {
+        return response;
+    },
+    (error) => {
+        // handelShowMessage(error);
+        return error;
+    }
+);
