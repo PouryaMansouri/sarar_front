@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import MainMenu from "../mainMenu/mainMenu";
 
@@ -11,29 +13,8 @@ function Header() {
               <p className="welcome-msg">Welcome to Sarar From UAE!</p>
             </div>
             <div className="header-right">
-              <div className="dropdown">
-                <a href="#currency">USD</a>
-                <ul className="dropdown-box">
-                  <li>
-                    <a href="#USD">USD</a>
-                  </li>
-                  <li>
-                    <a href="#EUR">EUR</a>
-                  </li>
-                </ul>
-              </div>
               {/* End DropDown Menu */}
-              <div className="ml-5 dropdown">
-                <a href="#language">ENG</a>
-                <ul className="dropdown-box">
-                  <li>
-                    <a href="#USD">ENG</a>
-                  </li>
-                  <li>
-                    <a href="#EUR">FRH</a>
-                  </li>
-                </ul>
-              </div>
+
               {/* End DropDown Menu */}
               <span className="divider" />
               <a href="contact-us.html" className="contact d-lg-show">
@@ -43,22 +24,18 @@ function Header() {
               <a href="#" className="help d-lg-show">
                 <i className="d-icon-info" /> Need Help
               </a>
-              <a
-                className="login-link"
-                href="ajax/login.html"
-                data-toggle="login-modal"
-              >
-                <i className="d-icon-user" />
-                Sign in
-              </a>
+              <Link href="/login">
+                <a className="login-link" data-toggle="login-modal">
+                  <i className="d-icon-user" />
+                  Sign in
+                </a>
+              </Link>
               <span className="delimiter">/</span>
-              <a
-                className="ml-0 register-link"
-                href="ajax/login.html"
-                data-toggle="login-modal"
-              >
-                Register
-              </a>
+              <Link href="/register">
+                <a className="ml-0 register-link" data-toggle="login-modal">
+                  Register
+                </a>
+              </Link>
               {/* End of Login */}
             </div>
           </div>
@@ -71,12 +48,19 @@ function Header() {
                 <i className="d-icon-bars2" />
               </a>
               <a href="demo2.html" className="logo">
-                <img
+                <Image
+                  layout="fixed"
+                  height={44}
+                  width={153}
+                  src="/static/images/logo.svg"
+                  alt="logo"
+                />
+                {/* <img
                   src="images/demos/demo2/logo.png"
                   alt="logo"
                   width={153}
                   height={44}
-                />
+                /> */}
               </a>
               {/* End Logo */}
               <div className="header-search hs-simple">
