@@ -27,7 +27,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(Email, Password);
+
     let milad = await http.post(
       "https://nakhll.com/api/v1/auth/begin/login_register/",
       {
@@ -40,6 +40,10 @@ function Login() {
     } else {
       toast.error("Login UnSuccessfully");
     }
+  };
+  const registerSubmit = async (e) => {
+    e.preventDefault();
+    console.log("register :>> ", e);
   };
 
   return (
@@ -145,7 +149,7 @@ function Login() {
                   )}
                   {!showLogin && (
                     <div className="tab-pane" id="register">
-                      <form action="#">
+                      <form onSubmit={registerSubmit}>
                         <InputLogin
                           type="email"
                           id="email"
