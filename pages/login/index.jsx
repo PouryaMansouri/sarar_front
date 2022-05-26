@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { http } from "../../service/callApi/api";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 
 const InputLogin = ({ type, id, placeholder }) => {
@@ -38,12 +38,8 @@ function Login() {
     if (milad.status === 201) {
       router.push("/");
     } else {
-      toast.error("Login UnSuccessfully");
+      toast.error("Login UnSuccessfully", { theme: "colored" });
     }
-  };
-  const registerSubmit = async (e) => {
-    e.preventDefault();
-    console.log("register :>> ", e);
   };
 
   return (
@@ -64,26 +60,12 @@ function Login() {
                       className="nav-link active border-no lh-1 ls-normal"
                       onClick={() => setshowLogin(true)}
                       style={{
-                        fontSize: showLogin ? "3rem" : "1.8rem",
-                        color: showLogin ? "#222" : "#666",
+                        fontSize: "3rem",
+                        color: "#222",
                         cursor: "pointer",
                       }}
                     >
                       Login
-                    </div>
-                  </li>
-                  <li className="delimiter">or</li>
-                  <li className="nav-item">
-                    <div
-                      className="nav-link border-no lh-1 ls-normal"
-                      onClick={() => setshowLogin(false)}
-                      style={{
-                        fontSize: showLogin ? "1.8rem" : "3rem",
-                        color: showLogin ? "#666" : "#222",
-                        cursor: "pointer",
-                      }}
-                    >
-                      Register
                     </div>
                   </li>
                 </ul>
@@ -143,57 +125,6 @@ function Login() {
                           type="submit"
                         >
                           Login
-                        </button>
-                      </form>
-                    </div>
-                  )}
-                  {!showLogin && (
-                    <div className="tab-pane" id="register">
-                      <form onSubmit={registerSubmit}>
-                        <InputLogin
-                          type="email"
-                          id="email"
-                          placeholder="Your Email address *"
-                        />
-                        <InputLogin
-                          type="text"
-                          id=""
-                          placeholder="First Name *"
-                        />
-                        <InputLogin type="" id="" placeholder="Last Name *" />
-                        <InputLogin
-                          type=""
-                          id=""
-                          placeholder="Phone Number *"
-                        />
-                        <InputLogin
-                          type="text"
-                          id="password"
-                          placeholder="Password *"
-                        />
-
-                        <div className="form-footer">
-                          <div className="form-checkbox">
-                            <input
-                              type="checkbox"
-                              className="custom-checkbox"
-                              id="register-agree"
-                              name="register-agree"
-                              required
-                            />
-                            <label
-                              className="form-control-label"
-                              htmlFor="register-agree"
-                            >
-                              I agree to the privacy policy
-                            </label>
-                          </div>
-                        </div>
-                        <button
-                          className="btn btn-dark btn-block btn-rounded"
-                          type="submit"
-                        >
-                          Register
                         </button>
                       </form>
                     </div>
