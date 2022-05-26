@@ -51,7 +51,7 @@ export default function Home() {
           <i className="d-icon-arrow-up" />
         </a>
         <MobileMenu />
-        <StickyIcons />
+        {/* <StickyIcons /> */}
       </div>
     </>
   );

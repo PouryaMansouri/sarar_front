@@ -13,29 +13,8 @@ function Header() {
               <p className="welcome-msg">Welcome to Sarar From UAE!</p>
             </div>
             <div className="header-right">
-              <div className="dropdown">
-                <a href="#currency">USD</a>
-                <ul className="dropdown-box">
-                  <li>
-                    <a href="#USD">USD</a>
-                  </li>
-                  <li>
-                    <a href="#EUR">EUR</a>
-                  </li>
-                </ul>
-              </div>
               {/* End DropDown Menu */}
-              <div className="ml-5 dropdown">
-                <a href="#language">ENG</a>
-                <ul className="dropdown-box">
-                  <li>
-                    <a href="#USD">ENG</a>
-                  </li>
-                  <li>
-                    <a href="#EUR">FRH</a>
-                  </li>
-                </ul>
-              </div>
+
               {/* End DropDown Menu */}
               <span className="divider" />
               <a href="contact-us.html" className="contact d-lg-show">
@@ -52,13 +31,11 @@ function Header() {
                 </a>
               </Link>
               <span className="delimiter">/</span>
-              <a
-                className="ml-0 register-link"
-                href="ajax/login.html"
-                data-toggle="login-modal"
-              >
-                Register
-              </a>
+              <Link href="/register">
+                <a className="ml-0 register-link" data-toggle="login-modal">
+                  Register
+                </a>
+              </Link>
               {/* End of Login */}
             </div>
           </div>

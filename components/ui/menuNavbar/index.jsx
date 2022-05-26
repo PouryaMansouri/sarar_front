@@ -10,8 +10,10 @@ function MenuNavbar({ title = "Men", url, sub }) {
             {/* <h4 className="menu-title">Variations 1</h4> */}
             <ul>
               <li>
-                {[1, 1, 1, 1].map((item, index) => (
-                  <a href="shop-classic-filter.html">Classic Filter</a>
+                {sub.map(({ name, slug }, index) => (
+                  <a key={index} href="">
+                    {name}
+                  </a>
                 ))}
               </li>
             </ul>

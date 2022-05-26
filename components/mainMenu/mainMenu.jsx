@@ -1,11 +1,18 @@
-import React, { useEffect } from "react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import { http } from "../../service/callApi/api";
 import MenuNavbar from "../ui/menuNavbar/index";
 function MainMenu() {
+  const [dataMenu, setDataMenu] = useState([]);
   useEffect(() => {
     async function getData() {
-      const response = await http.get("api/categories/navbar/");
-      console.log(response.data);
+      const response = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/categories/navbar/"
+      );
+      if (response.status === 200) {
+        setDataMenu(response.data);
+        console.log("response", response);
+      }
     }
     getData();
   }, []);
@@ -18,10 +25,17 @@ function MainMenu() {
             <nav className="main-nav">
               <ul className="menu menu-active-underline">
                 <li className="active">
-                  <a href="demo2.html">Home</a>
+                  <Link href="/">
+                    <a>Home</a>
+                  </Link>
                 </li>
-                {[1, 1, 1, 1].map((item, index) => (
-                  <MenuNavbar />
+                {dataMenu.map(({ name, slug, subcategories }, index) => (
+                  <MenuNavbar
+                    key={index}
+                    title={name}
+                    url={slug}
+                    sub={subcategories}
+                  />
                 ))}
                 <li>
                   <a href="blog-classic.html">Blog</a>
