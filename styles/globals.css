@@ -12384,22 +12384,11 @@ aside+div .product-single .product-details {
     position: relative;
 }
 
-.tab-content>.tab-pane {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    height: 0 !important;
-    opacity: 0;
-    z-index: -1;
-    transition: visibility 0.3s, opacity 0.3s;
-}
 
-.tab-content>.tab-pane:not(.active) {
+/* .tab-content>.tab-pane:not(.active) {
     overflow: hidden;
     visibility: hidden;
-}
+} */
 
 .tab-content>.active {
     position: relative;
