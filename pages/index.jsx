@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
 import MainLanding from "../components/mainLanding/mainLanding";
@@ -11,10 +11,15 @@ import StickyIcons from "../components/stickyIcons/stickyIcons";
 import { http } from "../service/callApi/api";
 
 export default function Home() {
+  const [dataHeader, setDataHeader] = useState();
   useEffect(() => {
     async function getData() {
-      const response = await http.get("/api/v1/products");
-      console.log(response.data);
+      const responseHeader = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/landing/main/"
+      );
+      if (responseHeader.status == 200) {
+        setDataHeader(responseHeader.data);
+      }
     }
     http;
   }, []);
