@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import MainMenu from "../mainMenu/mainMenu";
 
-function Header() {
+function Header({ dataHeader }) {
   return (
     <>
       <header className="header">

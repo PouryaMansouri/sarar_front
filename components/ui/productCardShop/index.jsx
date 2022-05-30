@@ -1,25 +1,21 @@
 import React from "react";
 
-function ProductCard({ dataCard, ...props }) {
+function ProductCardShop() {
   return (
-    <div className="mb-4 col-lg-3 col-md-4 col-6">
-      <div
-        className="product "
-        data-animation-options="{
-                                    'name': 'fadeInRightShorter',
-                                    'delay': '.4s'
-                                }"
-      >
+    <div className="product-wrap">
+      <div className="product">
         <figure className="product-media">
-          <a href="demo2-product.html">
+          <a href="product.html">
             <img
-              src={dataCard?.image}
-              alt="Blue Pinafore Denim Dress"
+              src="images/shop/13.jpg"
+              alt="product"
               width={280}
               height={315}
-              style={{ backgroundColor: "#f2f3f5" }}
             />
           </a>
+          <div className="product-label-group">
+            <label className="product-label label-new">new</label>
+          </div>
           <div className="product-action-vertical">
             <a
               href="#"
@@ -38,24 +34,34 @@ function ProductCard({ dataCard, ...props }) {
               <i className="d-icon-heart" />
             </a>
           </div>
+          <div className="product-action">
+            <a
+              href="#"
+              className="btn-product btn-quickview"
+              title="Quick View"
+            >
+              Quick View
+            </a>
+          </div>
         </figure>
         <div className="product-details">
           <div className="product-cat">
-            <a href="demo2-shop.html">{dataCard?.category?.name}</a>
+            <a href="shop-infinite-ajaxscroll.html">Clothing</a>
           </div>
           <h3 className="product-name">
-            <a href="demo2-product.html">{dataCard?.title}</a>
+            <a href="product.html">Coast Pool Comfort Jacket</a>
           </h3>
           <div className="product-price">
-            <span className="price">$7{dataCard?.min_price}</span>
+            <ins className="new-price">$199.00</ins>
+            <del className="old-price">$210.00</del>
           </div>
           <div className="ratings-container">
             <div className="ratings-full">
               <span className="ratings" style={{ width: "100%" }} />
               <span className="tooltiptext tooltip-top" />
             </div>
-            <a href="demo2-product.html" className="rating-reviews">
-              ( {dataCard?.star} reviews )
+            <a href="product.html" className="rating-reviews">
+              ( 6 reviews )
             </a>
           </div>
         </div>
@@ -64,4 +70,4 @@ function ProductCard({ dataCard, ...props }) {
   );
 }
 
-export default ProductCard;
+export default ProductCardShop;
