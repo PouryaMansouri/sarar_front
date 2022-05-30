@@ -1,9 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import HeaderProductPage from "../../components/productPage/headerProductPage";
+import { http } from "../../service/callApi/api";
 
 function ProductPage() {
-  useEffect(() => {}, []);
+  const [dataProductPage, setDataProductPage] = useState();
+  useEffect(() => {
+    async function getData() {
+      const responseProduct = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/products/1/"
+      );
+
+      const data = {
+        product: responseProduct?.data,
+      };
+      setDataProductPage(data);
+    }
+    getData();
+  }, []);
 
   return (
     <div className="page-wrapper">
@@ -141,68 +155,38 @@ function ProductPage() {
               <div className="col-lg-9 col-xxl-10">
                 <div className="product product-single row mb-4">
                   <div className="col-lg-7">
-                    <div className="product-gallery row cols-sm-2">
-                      <figure className="product-image mb-4">
-                        <img
-                          src="images/demos/demo7/product/product-1-580x580.jpg"
-                          data-zoom-image="images/demos/demo7/product/product-1-800x900.jpg"
-                          alt="Blue Pinafore Denim Dress"
-                          width={800}
-                          height={900}
-                        />
-                        <a href="#" className="product-image-full">
-                          <i className="d-icon-zoom" />
-                        </a>
-                      </figure>
-                      <figure className="product-image mb-4">
-                        <img
-                          src="images/demos/demo7/product/product-2-580x580.jpg"
-                          data-zoom-image="images/demos/demo7/product/product-2-800x900.jpg"
-                          alt="Blue Pinafore Denim Dress"
-                          width={800}
-                          height={900}
-                        />
-                        <a href="#" className="product-image-full">
-                          <i className="d-icon-zoom" />
-                        </a>
-                      </figure>
-                      <figure className="product-image mb-4">
-                        <img
-                          src="images/demos/demo7/product/product-3-580x580.jpg"
-                          data-zoom-image="images/demos/demo7/product/product-3-800x900.jpg"
-                          alt="Blue Pinafore Denim Dress"
-                          width={800}
-                          height={900}
-                        />
-                        <a href="#" className="product-image-full">
-                          <i className="d-icon-zoom" />
-                        </a>
-                      </figure>
-                      <figure className="product-image mb-4">
-                        <img
-                          src="images/demos/demo7/product/product-4-580x580.jpg"
-                          data-zoom-image="images/demos/demo7/product/product-4-800x900.jpg"
-                          alt="Blue Pinafore Denim Dress"
-                          width={800}
-                          height={900}
-                        />
-                        <a href="#" className="product-image-full">
-                          <i className="d-icon-zoom" />
-                        </a>
-                      </figure>
-                    </div>
+                    {dataProductPage?.product?.gallery && (
+                      <div className="product-gallery row cols-sm-2">
+                        {dataProductPage.product.gallery.map((dataProduct) => (
+                          <figure className="product-image mb-4">
+                            <img
+                              src={dataProduct.image}
+                              data-zoom-image="images/demos/demo7/product/product-1-800x900.jpg"
+                              alt="Blue Pinafore Denim Dress"
+                              width={800}
+                              height={900}
+                            />
+                            <a href="#" className="product-image-full">
+                              <i className="d-icon-zoom" />
+                            </a>
+                          </figure>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   <div className="col-lg-5">
                     <div className="product-details">
                       <h1 className="product-name pt-lg-2">
-                        Desde 1979 Running Trainer
+                        {dataProductPage?.product?.name}
                       </h1>
                       <div className="product-meta mb-3">
                         SKU: <span className="product-sku">12345670</span>
                         BRAND:{" "}
                         <span className="product-brand">The Northland</span>
                       </div>
-                      <div className="product-price">$139.00</div>
+                      <div className="product-price">
+                        ${dataProductPage?.product?.min_price}
+                      </div>
                       <div className="ratings-container">
                         <div className="ratings-full">
                           <span className="ratings" style={{ width: "80%" }} />
@@ -216,10 +200,7 @@ function ProductPage() {
                         </a>
                       </div>
                       <p className="product-short-desc">
-                        Sed egestas, ante et vulputate volutpat, eros pede
-                        semper est, vitae luctus metus libero eu augue. Morbi
-                        purus liberpuro ate vol faucibus adipiscing. Sed lectus
-                        te.
+                        {dataProductPage?.product?.description}
                       </p>
                       <div className="product-form product-color">
                         <label>Color:</label>
