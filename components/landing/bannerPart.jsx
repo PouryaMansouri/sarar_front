@@ -1,17 +1,17 @@
 import React from "react";
 
-function BannerPart() {
+function BannerPart({ dataBaner }) {
   return (
     <section
       className="mt-10 mb-10 banner banner-sale "
       style={{
-        backgroundImage: "url(images/demos/demo2/banners/3.jpg)",
+        backgroundImage: dataBaner.image,
         backgroundColor: "#1f272b",
       }}
     >
       <div className="banner-content ">
         <h4 className="mb-0 text-white banner-subtitle text-uppercase font-weight-normal lh-1 ls-m">
-          End Of Season
+          {dataBaner.title}
         </h4>
         <hr className="mb-2 divider" />
         <h3 className="mb-0 text-white banner-title text-uppercase lh-1">

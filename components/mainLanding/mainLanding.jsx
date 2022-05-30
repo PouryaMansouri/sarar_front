@@ -10,15 +10,25 @@ import { useEffect, useState } from "react";
 import { http } from "../../service/callApi/api";
 
 function MainLanding() {
-  const [dataHeader, setDataHeader] = useState();
+  const [dataLanding, setDataLanding] = useState();
   useEffect(() => {
     async function getData() {
       const responseHeader = await http.get(
         "https://sarar-mansouri.fandogh.cloud/api/landing/main/"
       );
-      if (responseHeader.status == 200) {
-        setDataHeader(responseHeader.data);
-      }
+      const responseTwoPicture = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/landing/main/cart/top/"
+      );
+      const responseBanner = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/landing/main/middle-banner/"
+      );
+      const allData = {
+        header: responseHeader?.data,
+        twoPicture: responseTwoPicture?.data,
+        banner: responseBanner?.data,
+      };
+      console.log("allData :>> ", allData);
+      setDataLanding(allData);
     }
     getData();
   }, []);
@@ -27,7 +37,7 @@ function MainLanding() {
       <main className="main demo2-cls">
         <div className="page-content">
           <div className="container">
-            {dataHeader && (
+            {dataLanding?.header && (
               <section className="intro-section">
                 <div className="row">
                   <div className="mb-4 col-12">
@@ -40,10 +50,18 @@ function MainLanding() {
                       interval={5000}
                     >
                       <div className="">
-                        <img loading="lazy" src={dataHeader.image_1} alt="" />
+                        <img
+                          loading="lazy"
+                          src={dataLanding.header.image_1}
+                          alt=""
+                        />
                       </div>
                       <div className="">
-                        <img loading="lazy" src={dataHeader.image_1} alt="" />
+                        <img
+                          loading="lazy"
+                          src={dataLanding.header.image_1}
+                          alt=""
+                        />
                       </div>
                       <div className="">
                         <img
@@ -54,62 +72,41 @@ function MainLanding() {
                       </div>
                     </Carousel>
                   </div>
-                  <div className="mb-4 col-md-6">
-                    <div className="banner banner-fixed overlay-zoom intro-banner intro-banner1 content-middle ">
-                      <figure>
-                        <img
-                          src="images/demos/demo2/banners/1.jpg"
-                          width={580}
-                          height={249}
-                          alt="banner"
-                          style={{ backgroundColor: "#eca5a9" }}
-                        />
-                      </figure>
-                      <div className="banner-content">
-                        <h4 className="text-white banner-subtitle ls-normal text-uppercase font-weight-normal lh-1">
-                          New Arrivals
-                        </h4>
-                        <h3 className="text-white banner-title font-weight-bold ls-md">
-                          Women's Sale
-                        </h3>
-                        <a
-                          href="demo2-shop.html"
-                          className="btn btn-white btn-link btn-underline font-weight-semi-bold"
-                        >
-                          Shop Now
-                          <i className="d-icon-arrow-right" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mb-4 col-md-6">
-                    <div className="banner banner-fixed overlay-zoom intro-banner intro-banner2 content-middle ">
-                      <figure>
-                        <img
-                          src="images/demos/demo2/banners/2.jpg"
-                          width={580}
-                          height={249}
-                          alt="banner"
-                          style={{ backgroundColor: "#494442" }}
-                        />
-                      </figure>
-                      <div className="banner-content">
-                        <h4 className="text-white banner-subtitle ls-normal text-uppercase font-weight-normal lh-1">
-                          Trending
-                        </h4>
-                        <h3 className="text-white banner-title font-weight-bold ls-md">
-                          New Sneaker
-                        </h3>
-                        <a
-                          href="demo2-shop.html"
-                          className="btn btn-white btn-link btn-underline font-weight-semi-bold"
-                        >
-                          Shop Now
-                          <i className="d-icon-arrow-right" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+
+                  {dataLanding?.twoPicture && (
+                    <>
+                      {dataLanding.twoPicture.map((item, index) => (
+                        <div className="mb-4 col-md-6">
+                          <div className="banner banner-fixed overlay-zoom intro-banner intro-banner1 content-middle ">
+                            <figure>
+                              <img
+                                src={item.image}
+                                width={580}
+                                height={249}
+                                alt="banner"
+                                style={{ backgroundColor: "#eca5a9" }}
+                              />
+                            </figure>
+                            <div className="banner-content">
+                              <h4 className="text-white banner-subtitle ls-normal text-uppercase font-weight-normal lh-1">
+                                {item.title}
+                              </h4>
+                              <h3 className="text-white banner-title font-weight-bold ls-md">
+                                {item.description}
+                              </h3>
+                              <a
+                                href="demo2-shop.html"
+                                className="btn btn-white btn-link btn-underline font-weight-semi-bold"
+                              >
+                                Shop Now
+                                <i className="d-icon-arrow-right" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </>
+                  )}
                 </div>
               </section>
             )}
@@ -129,7 +126,9 @@ function MainLanding() {
               </div>
             </section>
             {/* <TopCategories /> */}
-            <BannerPart />
+            {dataLanding?.banner && (
+              <BannerPart dataBaner={dataLanding.banner} />
+            )}
 
             <section className="pb-1 pt-7">
               <h2 className="title title-simple ls-m">Our Featured</h2>
