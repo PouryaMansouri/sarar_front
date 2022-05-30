@@ -1,9 +1,8 @@
 import React from "react";
 
-function ProductCard({data,...props}) {
+function ProductCard({ dataCard, ...props }) {
   return (
     <div className="mb-4 col-lg-3 col-md-4 col-6">
-      
       <div
         className="product "
         data-animation-options="{
@@ -14,7 +13,7 @@ function ProductCard({data,...props}) {
         <figure className="product-media">
           <a href="demo2-product.html">
             <img
-              src="images/demos/demo2/products/8.jpg"
+              src={dataCard?.image}
               alt="Blue Pinafore Denim Dress"
               width={280}
               height={315}
@@ -39,25 +38,16 @@ function ProductCard({data,...props}) {
               <i className="d-icon-heart" />
             </a>
           </div>
-          <div className="product-action">
-            <a
-              href="#"
-              className="btn-product btn-quickview"
-              title="Quick View"
-            >
-              Quick View
-            </a>
-          </div>
         </figure>
         <div className="product-details">
           <div className="product-cat">
-            <a href="demo2-shop.html">Bags &amp; Backpacks</a>
+            <a href="demo2-shop.html">{dataCard?.category?.name}</a>
           </div>
           <h3 className="product-name">
-            <a href="demo2-product.html">A Dress-Suit Valise</a>
+            <a href="demo2-product.html">{dataCard?.title}</a>
           </h3>
           <div className="product-price">
-            <span className="price">$78.23</span>
+            <span className="price">$7{dataCard?.min_price}</span>
           </div>
           <div className="ratings-container">
             <div className="ratings-full">
@@ -65,7 +55,7 @@ function ProductCard({data,...props}) {
               <span className="tooltiptext tooltip-top" />
             </div>
             <a href="demo2-product.html" className="rating-reviews">
-              ( 53 reviews )
+              ( {dataCard?.star} reviews )
             </a>
           </div>
         </div>

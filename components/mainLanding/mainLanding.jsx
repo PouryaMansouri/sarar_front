@@ -22,10 +22,18 @@ function MainLanding() {
       const responseBanner = await http.get(
         "https://sarar-mansouri.fandogh.cloud/api/landing/main/middle-banner/"
       );
+      const responseListBestSelling = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/landing/main/best-selling-product/"
+      );
+      const responseListNewProduct = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/landing/new-product/"
+      );
       const allData = {
         header: responseHeader?.data,
         twoPicture: responseTwoPicture?.data,
         banner: responseBanner?.data,
+        listBestSelling: responseListBestSelling?.data,
+        listNewProduct: responseListNewProduct?.data,
       };
       console.log("allData :>> ", allData);
       setDataLanding(allData);
@@ -110,34 +118,34 @@ function MainLanding() {
                 </div>
               </section>
             )}
-            <section className="pt-3 mt-10 mb-6">
-              <h2 className="title title-simple title-center ls-m">
-                Best Selling
-              </h2>
-              <div className="product-wrapper row">
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-              </div>
-            </section>
+            {dataLanding?.listBestSelling && (
+              <section className="pt-3 mt-10 mb-6">
+                <h2 className="title title-simple title-center ls-m">
+                  Best Selling
+                </h2>
+                <div className="product-wrapper row">
+                  {dataLanding.listBestSelling.map((item, index) => (
+                    <ProductCard dataCard={item} key={index} />
+                  ))}
+                </div>
+              </section>
+            )}
+
             {/* <TopCategories /> */}
             {dataLanding?.banner && (
               <BannerPart dataBaner={dataLanding.banner} />
             )}
+            {dataLanding?.listNewProduct && (
+              <section className="pb-1 pt-7">
+                <h2 className="title title-simple ls-m">Our Featured</h2>
+                <div className="owl-carousel owl-theme row owl-nav-full cols-lg-4 cols-md-3 cols-2">
+                  {dataLanding.listNewProduct.map((item, index) => (
+                    <ProductCard dataCard={item} key={index} />
+                  ))}
+                </div>
+              </section>
+            )}
 
-            <section className="pb-1 pt-7">
-              <h2 className="title title-simple ls-m">Our Featured</h2>
-              <div className="owl-carousel owl-theme row owl-nav-full cols-lg-4 cols-md-3 cols-2">
-                {[1, 1, 1, 1].map((item, index) => (
-                  <ProductCard />
-                ))}
-              </div>
-            </section>
             <ValuesPart />
 
             <InstagramPart />
