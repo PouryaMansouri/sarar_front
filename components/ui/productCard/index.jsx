@@ -1,6 +1,8 @@
+import Link from "next/link";
 import React from "react";
 
 function ProductCard({ dataCard, ...props }) {
+  console.log("dataCard :>> ", dataCard);
   return (
     <div className="mb-4 col-lg-3 col-md-4 col-6">
       <div
@@ -11,15 +13,17 @@ function ProductCard({ dataCard, ...props }) {
                                 }"
       >
         <figure className="product-media">
-          <a href="demo2-product.html">
-            <img
-              src={dataCard?.image}
-              alt="Blue Pinafore Denim Dress"
-              width={280}
-              height={315}
-              style={{ backgroundColor: "#f2f3f5" }}
-            />
-          </a>
+          <Link href={`/product/${dataCard.id}/`}>
+            <a>
+              <img
+                src={dataCard?.image}
+                alt="Blue Pinafore Denim Dress"
+                width={280}
+                height={315}
+                style={{ backgroundColor: "#f2f3f5" }}
+              />
+            </a>
+          </Link>
           <div className="product-action-vertical">
             <a
               href="#"
@@ -41,10 +45,14 @@ function ProductCard({ dataCard, ...props }) {
         </figure>
         <div className="product-details">
           <div className="product-cat">
-            <a href="demo2-shop.html">{dataCard?.category?.name}</a>
+            <Link href={`/`}>
+              <a>{dataCard?.category?.name}</a>
+            </Link>
           </div>
           <h3 className="product-name">
-            <a href="demo2-product.html">{dataCard?.title}</a>
+            <Link href={`/product/${dataCard.id}/`}>
+              <a>{dataCard?.title}</a>
+            </Link>
           </h3>
           <div className="product-price">
             <span className="price">$7{dataCard?.min_price}</span>

@@ -5,7 +5,7 @@ function BannerPart({ dataBaner }) {
     <section
       className="mt-10 mb-10 banner banner-sale "
       style={{
-        backgroundImage: dataBaner.image,
+        backgroundImage: `url(${dataBaner.image})`,
         backgroundColor: "#1f272b",
       }}
     >
