@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
-
+import { useRouter } from "next/router";
 import HeaderProductPage from "../../components/productPage/headerProductPage";
 import { http } from "../../service/callApi/api";
 
 function ProductPage() {
+  const router = useRouter();
+  const { idproduct } = router.query;
+
   const [dataProductPage, setDataProductPage] = useState();
   useEffect(() => {
     async function getData() {
       const responseProduct = await http.get(
-        "https://sarar-mansouri.fandogh.cloud/api/products/1/"
+        `https://sarar-mansouri.fandogh.cloud/api/products/${idproduct}/`
       );
 
       const data = {
