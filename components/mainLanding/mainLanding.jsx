@@ -8,38 +8,39 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useEffect, useState } from "react";
 import { http } from "../../service/callApi/api";
+import Image from "next/image";
 
-function MainLanding() {
-  const [dataLanding, setDataLanding] = useState();
-  useEffect(() => {
-    async function getData() {
-      const responseHeader = await http.get(
-        "https://sarar-mansouri.fandogh.cloud/api/landing/main/"
-      );
-      const responseTwoPicture = await http.get(
-        "https://sarar-mansouri.fandogh.cloud/api/landing/main/cart/top/"
-      );
-      const responseBanner = await http.get(
-        "https://sarar-mansouri.fandogh.cloud/api/landing/main/middle-banner/"
-      );
-      const responseListBestSelling = await http.get(
-        "https://sarar-mansouri.fandogh.cloud/api/landing/main/best-selling-product/"
-      );
-      const responseListNewProduct = await http.get(
-        "https://sarar-mansouri.fandogh.cloud/api/landing/new-product/"
-      );
-      const allData = {
-        header: responseHeader?.data,
-        twoPicture: responseTwoPicture?.data,
-        banner: responseBanner?.data,
-        listBestSelling: responseListBestSelling?.data,
-        listNewProduct: responseListNewProduct?.data,
-      };
-      console.log("allData :>> ", allData);
-      setDataLanding(allData);
-    }
-    getData();
-  }, []);
+function MainLanding({ dataLanding }) {
+  // const [dataLanding, setDataLanding] = useState();
+  // useEffect(() => {
+  //   async function getData() {
+  //     const responseHeader = await http.get(
+  //       "https://sarar-mansouri.fandogh.cloud/api/landing/main/"
+  //     );
+  //     const responseTwoPicture = await http.get(
+  //       "https://sarar-mansouri.fandogh.cloud/api/landing/main/cart/top/"
+  //     );
+  //     const responseBanner = await http.get(
+  //       "https://sarar-mansouri.fandogh.cloud/api/landing/main/middle-banner/"
+  //     );
+  //     const responseListBestSelling = await http.get(
+  //       "https://sarar-mansouri.fandogh.cloud/api/landing/main/best-selling-product/"
+  //     );
+  //     const responseListNewProduct = await http.get(
+  //       "https://sarar-mansouri.fandogh.cloud/api/landing/new-product/"
+  //     );
+  //     const allData = {
+  //       header: responseHeader?.data,
+  //       twoPicture: responseTwoPicture?.data,
+  //       banner: responseBanner?.data,
+  //       listBestSelling: responseListBestSelling?.data,
+  //       listNewProduct: responseListNewProduct?.data,
+  //     };
+  //     console.log("allData :>> ", allData);
+  //     setDataLanding(allData);
+  //   }
+  //   getData();
+  // }, []);
   return (
     <>
       <main className="main demo2-cls">
@@ -58,17 +59,27 @@ function MainLanding() {
                       interval={5000}
                     >
                       <div className="">
-                        <img
+                        <Image
                           loading="lazy"
+                          width={1180}
+                          height={550}
+                          layout="responsive"
                           src={dataLanding.header.image_1}
                           alt=""
+                          placeholder="blur"
+                          blurDataURL="/static/images/logo.svg"
                         />
                       </div>
                       <div className="">
-                        <img
+                        <Image
                           loading="lazy"
+                          width={1180}
+                          height={550}
+                          layout="responsive"
                           src={dataLanding.header.image_2}
                           alt=""
+                          placeholder="blur"
+                          blurDataURL="/static/images/logo.svg"
                         />
                       </div>
                     </Carousel>
@@ -80,10 +91,11 @@ function MainLanding() {
                         <div className="mb-4 col-md-6">
                           <div className="banner banner-fixed overlay-zoom intro-banner intro-banner1 content-middle ">
                             <figure>
-                              <img
+                              <Image
                                 src={item.image}
                                 width={580}
                                 height={249}
+                                layout="responsive"
                                 alt="banner"
                                 style={{ backgroundColor: "#eca5a9" }}
                               />
