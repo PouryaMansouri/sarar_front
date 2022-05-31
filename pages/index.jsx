@@ -10,7 +10,7 @@ import StickyFooter from "../components/stickyFooter/stickyFooter";
 import StickyIcons from "../components/stickyIcons/stickyIcons";
 import { http } from "../service/callApi/api";
 
-export default function Home({ dataLanding }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -29,7 +29,7 @@ export default function Home({ dataLanding }) {
           {/* <MobileMenu/> */}
           {/* <MainMenu/> */}
           <Header />
-          <MainLanding dataLanding={dataLanding} />
+          <MainLanding />
           <Footer />
         </div>
         <StickyFooter />
@@ -47,37 +47,4 @@ export default function Home({ dataLanding }) {
       </div>
     </>
   );
-}
-
-export async function getStaticProps() {
-  // Call an external API endpoint to get posts
-
-  const responseHeader = await http.get(
-    "https://sarar-mansouri.fandogh.cloud/api/landing/main/"
-  );
-  const responseTwoPicture = await http.get(
-    "https://sarar-mansouri.fandogh.cloud/api/landing/main/cart/top/"
-  );
-  const responseBanner = await http.get(
-    "https://sarar-mansouri.fandogh.cloud/api/landing/main/middle-banner/"
-  );
-  const responseListBestSelling = await http.get(
-    "https://sarar-mansouri.fandogh.cloud/api/landing/main/best-selling-product/"
-  );
-  const responseListNewProduct = await http.get(
-    "https://sarar-mansouri.fandogh.cloud/api/landing/new-product/"
-  );
-  const dataLanding = {
-    header: responseHeader?.data,
-    twoPicture: responseTwoPicture?.data,
-    banner: responseBanner?.data,
-    listBestSelling: responseListBestSelling?.data,
-    listNewProduct: responseListNewProduct?.data,
-  };
-
-  return {
-    props: {
-      dataLanding,
-    },
-  };
 }

@@ -10,37 +10,37 @@ import { useEffect, useState } from "react";
 import { http } from "../../service/callApi/api";
 import Image from "next/image";
 
-function MainLanding({ dataLanding }) {
-  // const [dataLanding, setDataLanding] = useState();
-  // useEffect(() => {
-  //   async function getData() {
-  //     const responseHeader = await http.get(
-  //       "https://sarar-mansouri.fandogh.cloud/api/landing/main/"
-  //     );
-  //     const responseTwoPicture = await http.get(
-  //       "https://sarar-mansouri.fandogh.cloud/api/landing/main/cart/top/"
-  //     );
-  //     const responseBanner = await http.get(
-  //       "https://sarar-mansouri.fandogh.cloud/api/landing/main/middle-banner/"
-  //     );
-  //     const responseListBestSelling = await http.get(
-  //       "https://sarar-mansouri.fandogh.cloud/api/landing/main/best-selling-product/"
-  //     );
-  //     const responseListNewProduct = await http.get(
-  //       "https://sarar-mansouri.fandogh.cloud/api/landing/new-product/"
-  //     );
-  //     const allData = {
-  //       header: responseHeader?.data,
-  //       twoPicture: responseTwoPicture?.data,
-  //       banner: responseBanner?.data,
-  //       listBestSelling: responseListBestSelling?.data,
-  //       listNewProduct: responseListNewProduct?.data,
-  //     };
-  //     console.log("allData :>> ", allData);
-  //     setDataLanding(allData);
-  //   }
-  //   getData();
-  // }, []);
+function MainLanding() {
+  const [dataLanding, setDataLanding] = useState();
+  useEffect(() => {
+    async function getData() {
+      const responseHeader = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/landing/main/"
+      );
+      const responseTwoPicture = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/landing/main/cart/top/"
+      );
+      const responseBanner = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/landing/main/middle-banner/"
+      );
+      const responseListBestSelling = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/landing/main/best-selling-product/"
+      );
+      const responseListNewProduct = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/landing/new-product/"
+      );
+      const allData = {
+        header: responseHeader?.data,
+        twoPicture: responseTwoPicture?.data,
+        banner: responseBanner?.data,
+        listBestSelling: responseListBestSelling?.data,
+        listNewProduct: responseListNewProduct?.data,
+      };
+      console.log("allData :>> ", allData);
+      setDataLanding(allData);
+    }
+    getData();
+  }, []);
   return (
     <>
       <main className="main demo2-cls">
