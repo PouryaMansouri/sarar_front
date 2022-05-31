@@ -67,14 +67,7 @@ function MainLanding() {
                       <div className="">
                         <img
                           loading="lazy"
-                          src={dataLanding.header.image_1}
-                          alt=""
-                        />
-                      </div>
-                      <div className="">
-                        <img
-                          loading="lazy"
-                          src="https://links.papareact.com/7ma"
+                          src={dataLanding.header.image_2}
                           alt=""
                         />
                       </div>

@@ -21,7 +21,6 @@ export default function Home() {
         setDataHeader(responseHeader.data);
       }
     }
-    http;
   }, []);
 
   return (
