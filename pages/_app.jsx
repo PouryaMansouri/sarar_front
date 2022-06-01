@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import "../styles/stickyicon.css";
 import "../styles/animate/animate.min.css";
 import "../styles/ReactToastify.css";
-
+import "../styles/_font-icons.scss";
 // import "../styles/owl-carousel/owl.carousel.min.css";
 
 function MyApp({ Component, pageProps }) {

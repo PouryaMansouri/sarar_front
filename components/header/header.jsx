@@ -1,9 +1,17 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import React from "react";
+import { useState } from "react";
 import MainMenu from "../mainMenu/mainMenu";
 
 function Header({ dataHeader }) {
+  const router = useRouter();
+  const [searchWord, setSearchWord] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push(`/search?search=${searchWord}`);
+  };
   return (
     <>
       <header className="header">
@@ -64,12 +72,14 @@ function Header({ dataHeader }) {
               </a>
               {/* End Logo */}
               <div className="header-search hs-simple">
-                <form action="#" className="input-wrapper">
+                <form onSubmit={handleSubmit} className="input-wrapper">
                   <input
                     type="text"
                     className="form-control"
                     name="search"
                     autoComplete="off"
+                    value={searchWord}
+                    onChange={(e) => setSearchWord(e.target.value)}
                     placeholder="Search..."
                     required
                   />
