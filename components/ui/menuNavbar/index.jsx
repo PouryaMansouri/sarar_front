@@ -9,13 +9,13 @@ function MenuNavbar({ title = "Men", url, sub }) {
           <div className="col-6 col-sm-4 col-md-4 col-lg-3">
             {/* <h4 className="menu-title">Variations 1</h4> */}
             <ul>
-              <li>
-                {sub.map(({ name, slug }, index) => (
+              {sub.map(({ name, slug }, index) => (
+                <li>
                   <a key={index} href="">
                     {name}
                   </a>
-                ))}
-              </li>
+                </li>
+              ))}
             </ul>
           </div>
           {/* End Megamenu */}

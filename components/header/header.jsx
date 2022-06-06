@@ -10,7 +10,7 @@ function Header({ dataHeader }) {
   const [searchWord, setSearchWord] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push(`/search?search=${searchWord}`);
+    router.push(`/search?product__name=${searchWord}`);
   };
   return (
     <>

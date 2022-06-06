@@ -1,18 +1,22 @@
+import Link from "next/link";
 import React from "react";
 
-function ProductCardShop() {
+function ProductCardShop({ dataCard, ...props }) {
+  console.log("dataCard :>> ", dataCard);
   return (
     <div className="product-wrap">
       <div className="product">
         <figure className="product-media">
-          <a href="product.html">
-            <img
-              src="images/shop/13.jpg"
-              alt="product"
-              width={280}
-              height={315}
-            />
-          </a>
+          <Link href={`/product/${dataCard.id}/`}>
+            <a href="product.html">
+              <img
+                src={dataCard?.product?.image}
+                alt="product"
+                width={280}
+                height={315}
+              />
+            </a>
+          </Link>
           <div className="product-label-group">
             <label className="product-label label-new">new</label>
           </div>
@@ -46,13 +50,17 @@ function ProductCardShop() {
         </figure>
         <div className="product-details">
           <div className="product-cat">
-            <a href="shop-infinite-ajaxscroll.html">Clothing</a>
+            <Link href={`/`}>
+              <a>{dataCard?.category?.name}</a>
+            </Link>
           </div>
           <h3 className="product-name">
-            <a href="product.html">Coast Pool Comfort Jacket</a>
+            <Link href={`/product/${dataCard.id}/`}>
+              <a>{dataCard?.title}</a>
+            </Link>
           </h3>
           <div className="product-price">
-            <ins className="new-price">$199.00</ins>
+            <ins className="new-price">${dataCard?.price}</ins>
             <del className="old-price">$210.00</del>
           </div>
           <div className="ratings-container">
@@ -61,7 +69,7 @@ function ProductCardShop() {
               <span className="tooltiptext tooltip-top" />
             </div>
             <a href="product.html" className="rating-reviews">
-              ( 6 reviews )
+              ( {dataCard?.star} reviews )
             </a>
           </div>
         </div>
