@@ -55,7 +55,7 @@ function ProductCard({ dataCard, ...props }) {
             </Link>
           </h3>
           <div className="product-price">
-            <span className="price">$7{dataCard?.min_price}</span>
+            <span className="price">${dataCard?.min_price}</span>
           </div>
           <div className="ratings-container">
             <div className="ratings-full">

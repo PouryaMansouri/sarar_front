@@ -1,14 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import ProductCardShop from "../../components/ui/productCardShop";
 import { http } from "../../service/callApi/api";
 
 function ShopPage() {
+  const [productsSearch, setProductsSearch] = useState([]);
+  const { query } = useRouter();
+  console.log("query :>> ", query);
   useEffect(() => {
     async function fetchData() {
-      let {data,status} = await http.get(
-        "https://sarar-mansouri.fandogh.cloud/api/products/"
+      let { data, status } = await http.get(
+        "https://sarar-mansouri.fandogh.cloud/api/stocks/",
+        { params: query }
       );
-      
+      if (status === 200) {
+        setProductsSearch(data.results);
+      }
     }
 
     fetchData();
@@ -217,18 +224,11 @@ function ShopPage() {
               </div>
             </nav>
             <div className="row cols-2 cols-sm-3 product-wrapper scroll-load">
-              <ProductCardShop />
-              <ProductCardShop />
-              <ProductCardShop />
-              <ProductCardShop />
-              <ProductCardShop />
-              <ProductCardShop />
-              <ProductCardShop />
-              <ProductCardShop />
-              <ProductCardShop />
-              <ProductCardShop />
-              <ProductCardShop />
-              <ProductCardShop />
+              {productsSearch.map((product, index) => (
+                <>
+                  <ProductCardShop dataCard={product} key={index} />
+                </>
+              ))}
             </div>
           </div>
         </div>
